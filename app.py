@@ -33,6 +33,7 @@ st.markdown("""
 
     .box-saran {
         background-color: #ffffff;
+        color: #1a2a40 !important; /* <--- TAMBAHKAN BARIS INI */
         border-left: 5px solid #2a6fdb;
         padding: 1.5rem;
         border-radius: 8px;
@@ -59,39 +60,39 @@ kelas_luka = ['Bengkak', 'Bukan Cedera', 'Lecet', 'Luka Bakar', 'Luka Sayatan', 
 # Kamus Saran P3K (Berdasarkan Standar Medis Umum & Palang Merah)
 saran_p3k = {
     'Bengkak': (
-        "🧊 **Bengkak (Swelling): Terapkan Metode R.I.C.E**<br>"
-        "• **R**est: Istirahatkan area yang cedera.<br>"
-        "• **I**ce: Kompres dingin (es dibalut handuk) selama 15-20 menit untuk mengurangi radang.<br>"
-        "• **C**ompression: Balut dengan perban elastis (jangan terlalu ketat).<br>"
-        "• **E**levation: Posisikan area yang bengkak lebih tinggi dari jantung untuk mengurangi penumpukan cairan."
+        "🧊 <b>Bengkak (Swelling): Terapkan Metode R.I.C.E</b><br>"
+        "• <b>R</b>est: Istirahatkan area yang cedera.<br>"
+        "• <b>I</b>ce: Kompres dingin (es dibalut handuk) selama 15-20 menit untuk mengurangi radang.<br>"
+        "• <b>C</b>ompression: Balut dengan perban elastis (jangan terlalu ketat).<br>"
+        "• <b>E</b>levation: Posisikan area yang bengkak lebih tinggi dari jantung untuk mengurangi penumpukan cairan."
     ),
     'Bukan Cedera': (
-        "✨ **Kondisi Aman (Normal Tissue):**<br>"
-        "Tidak terdeteksi adanya cedera luar pada epidermis yang memerlukan intervensi P3K. Tetap jaga kebersihan dan hidrasi kulit."
+        "✨ <b>Kondisi Aman (Normal Tissue):</b><br>"
+        "Tidak terdeteksi adanya cedera luar pada epidermis yang memerlukan intervensi P3K. Tetap jaga kebersihan dan hidrasi kulit. Dan Kirimkan foto yang terdapat luka pada anda"
     ),
     'Lecet': (
-        "💧 **Lecet (Abrasion):**<br>"
+        "💧 <b>Lecet (Abrasion):</b><br>"
         "• Cuci tangan terlebih dahulu.<br>"
         "• Bersihkan kotoran dari luka perlahan menggunakan air mengalir atau cairan saline (NaCl 0.9%).<br>"
-        "• *Peringatan Medis:* Hindari menuangkan alkohol atau yodium pekat langsung ke luka karena dapat merusak jaringan sehat (sitotoksik) dan memperlambat penyembuhan.<br>"
+        "• <i>Peringatan Medis:</i> Hindari menuangkan alkohol atau yodium pekat langsung ke luka karena dapat merusak jaringan sehat (sitotoksik) dan memperlambat penyembuhan.<br>"
         "• Keringkan perlahan, oleskan salep antibiotik (jika ada), dan tutup dengan kasa steril."
     ),
     'Luka Bakar': (
-        "🚰 **Luka Bakar Ringan (Thermal Burn 1st/2nd Degree):**<br>"
+        "🚰 <b>Luka Bakar Ringan (Thermal Burn 1st/2nd Degree):</b><br>"
         "• Segera hentikan proses kerusakan jaringan dengan mengaliri luka di bawah air keran biasa (suhu ruang) selama 15-20 menit.<br>"
-        "• *Peringatan Medis:* **JANGAN** mengoleskan pasta gigi, mentega, kecap, atau es batu! Bahan-bahan tersebut mengunci panas di dalam kulit dan memicu infeksi parah.<br>"
+        "• <i>Peringatan Medis:</i> <b>JANGAN</b> mengoleskan pasta gigi, mentega, kecap, atau es batu! Bahan-bahan tersebut mengunci panas di dalam kulit dan memicu infeksi parah.<br>"
         "• Tutup perlahan dengan kasa steril yang tidak menempel (non-adherent dressing)."
     ),
     'Luka Sayatan': (
-        "🩸 **Luka Sayatan (Laceration/Incision):**<br>"
-        "• Prioritas utama: Hentikan pendarahan dengan memberikan tekanan langsung (*direct pressure*) menggunakan kasa steril atau kain bersih selama beberapa menit.<br>"
+        "🩸 <b>Luka Sayatan (Laceration/Incision):</b><br>"
+        "• Prioritas utama: Hentikan pendarahan dengan memberikan tekanan langsung (<i>direct pressure</i>) menggunakan kasa steril atau kain bersih selama beberapa menit.<br>"
         "• Setelah darah berhenti, bilas dengan air mengalir untuk mencegah infeksi.<br>"
         "• Jika sayatan terlihat sangat dalam, menganga, atau pendarahan tidak berhenti setelah 10 menit ditekan, segera ke IGD untuk mendapatkan jahitan medis."
     ),
     'Memar': (
-        "❄️ **Memar (Contusion):**<br>"
+        "❄️ <b>Memar (Contusion):</b><br>"
         "• Terjadi karena pecahnya pembuluh darah kapiler di bawah kulit. Berikan kompres dingin pada 24-48 jam pertama untuk menyempitkan pembuluh darah.<br>"
-        "• *Peringatan Medis:* **Hindari memijat atau mengurut** area yang memar karena dapat merusak pembuluh darah lebih lanjut dan memperparah penyebaran darah di bawah kulit.<br>"
+        "• <i>Peringatan Medis:</i> <b>Hindari memijat atau mengurut</b> area yang memar karena dapat merusak pembuluh darah lebih lanjut dan memperparah penyebaran darah di bawah kulit.<br>"
         "• Setelah 48 jam, ganti dengan kompres hangat untuk memperlancar penyerapan sisa darah."
     )
 }
@@ -157,4 +158,4 @@ if uploaded_file is not None:
         for label, _ in kemungkinan_lain:
             st.markdown(f"<div class='box-saran'>{saran_p3k[label]}</div>", unsafe_allow_html=True)
 
-    st.caption("⚠️ *Catatan: Aplikasi AI ini adalah asisten P3K. Segera ke dokter jika kondisi memburuk.*")
+    st.warning("🚨 **CATATAN MEDIS PENTING:**\nAplikasi AI ini hanya berfungsi sebagai panduan Pertolongan Pertama pada Kecelakaan (P3K). **Segera kunjungi dokter atau fasilitas kesehatan terdekat** jika luka sangat dalam, pendarahan tidak berhenti, atau kondisi memburuk!")
